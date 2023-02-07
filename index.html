@@ -8,7 +8,40 @@
     <!-- Start cookieyes banner --> 
     <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/9c26c634c66b08ad062d8587/script.js"></script>
     <!-- End cookieyes banner -->
-    
+
+    <!--Visit count-->
+    <script>
+        var cookie = document.cookie;
+        if(cookie!= null && cookie!=undefined){
+            if(cookie.length>0){
+                var cookies = cookie.split(';').map(cookie => cookie.split('=')).reduce((accumulator, [key, value]) =>({ ...accumulator, [key.trim()]: decodeURIComponent(value) }),{});
+                var seenCount= cookies.visit;
+                seenCount++;
+                document.cookie = "visit="+seenCount+";";
+            }
+            else{
+                document.cookie = "visit=1";
+                document.cookie = "click=0";
+            }
+        }
+    </script>
+
+    <!--Click count-->
+    <script>
+        var cookie = document.cookie;
+        if(cookie!= null && cookie!=undefined){
+            if(cookie.length>0){
+                var cookies = cookie.split(';').map(cookie => cookie.split('=')).reduce((accumulator, [key, value]) =>({ ...accumulator, [key.trim()]: decodeURIComponent(value) }),{});
+                var seenCount= cookies.click;
+                seenCount++;
+                document.cookie = "click="+seenCount+";";
+            }
+            else{
+                document.cookie = "click=1";
+            }
+        }
+    </script>
+
     <!-- Hotjar Tracking Code for my site -->
     <script>
         (function(h,o,t,j,a,r){
