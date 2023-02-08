@@ -88,9 +88,9 @@
         <script data-cookieyes="cookieyes-performance">
             document.cookie = "click=0";
             var seenCount=0;
+            var clickcount = document.getElementById("clickcount");
             clickcount.onClick = function() {
                 var cookie = document.cookie;
-                var btn = document.getElementById("btn");
                 if(cookie!= null && cookie!=undefined){
                     if(cookie.length>0){
                         var cookies = cookie.split(';').map(cookie => cookie.split('=')).reduce((accumulator, [key, value]) =>({ ...accumulator, [key.trim()]: decodeURIComponent(value) }),{});
