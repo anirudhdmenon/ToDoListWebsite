@@ -11,6 +11,7 @@
 
     <!--Visit count-->
     <script data-cookieyes="cookieyes-performance">
+        document.cookie = "visit=0; max-age=31536000;";
         var cookie = document.cookie;
         if(cookie!= null && cookie!=undefined){
             if(cookie.length>0){
@@ -28,17 +29,22 @@
 
     <!--Click count-->
     <script data-cookieyes="cookieyes-performance">
-        var cookie = document.cookie;
-        if(cookie!= null && cookie!=undefined){
-            if(cookie.length>0){
-                var cookies = cookie.split(';').map(cookie => cookie.split('=')).reduce((accumulator, [key, value]) =>({ ...accumulator, [key.trim()]: decodeURIComponent(value) }),{});
-                var seenCount= cookies.click;
-                seenCount++;
-                document.cookie = "click="+seenCount+";";
+        function newElement() {
+            var cookie = document.cookie;
+            var btn = document.getElementById("btn");
+            if(cookie!= null && cookie!=undefined){
+                if(cookie.length>0){
+                    var cookies = cookie.split(';').map(cookie => cookie.split('=')).reduce((accumulator, [key, value]) =>({ ...accumulator, [key.trim()]: decodeURIComponent(value) }),{});
+                    var seenCount= cookies.click;
+                    seenCount++;
+                    document.cookie = "click="+seenCount+";";
+                }
+                else{
+                    document.cookie = "click=1;";
+                }
             }
-            else{
-                document.cookie = "click=1;";
-            }
+            //document.getElementById("clicks").innerHTML = "button clicked "+seenCount+" times."
+            //alert("button clicked "+seenCount+" times.");
         }
     </script>
 
@@ -69,7 +75,7 @@
         <h2 style="margin:5px">TO-DO-LIST 2023</h2>
         <label for="myInput">Enter list Item: </labeL>
         <input type="text" id="myInput" placeholder="Title...">
-        <button onclick="newElement()" class="addBtn">ADD TO LIST</button>
+        <button onclick="newElement()" id="clicks" class="addBtn">ADD TO LIST</button>
         <p id="clicks"></p>
       </div>
       
