@@ -9,47 +9,6 @@
     <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/9c26c634c66b08ad062d8587/script.js"></script>
     <!-- End cookieyes banner -->
 
-    <!--Visit count-->
-    <script data-cookieyes="cookieyes-performance">
-        //document.cookie = "visit=0; max-age=31536000;";
-        var cookie = document.cookie;
-        if(cookie!= null && cookie!=undefined){
-            if(cookie.length>0){
-                var cookies = cookie.split(';').map(cookie => cookie.split('=')).reduce((accumulator, [key, value]) =>({ ...accumulator, [key.trim()]: decodeURIComponent(value) }),{});
-                var seenCount= cookies.visit;
-                seenCount++;
-                document.cookie = "visit="+seenCount+";";
-            }
-            else{
-                document.cookie = "visit=1;";
-            }
-            document.cookie = "click=0;";
-        }
-    </script>
-
-    <!--Click count-->
-    <script data-cookieyes="cookieyes-performance">
-        document.cookie = "click=0";
-        var seenCount=0;
-        function newElement() {
-            var cookie = document.cookie;
-            var btn = document.getElementById("btn");
-            if(cookie!= null && cookie!=undefined){
-                if(cookie.length>0){
-                    var cookies = cookie.split(';').map(cookie => cookie.split('=')).reduce((accumulator, [key, value]) =>({ ...accumulator, [key.trim()]: decodeURIComponent(value) }),{});
-                    var seenCount= cookies.click;
-                    seenCount++;
-                    document.cookie = "click="+seenCount+";";
-                }
-                else{
-                    document.cookie = "click=1;";
-                }
-            }
-            //document.getElementById("clicks").innerHTML = "button clicked "+seenCount+" times."
-            //alert("button clicked "+seenCount+" times.");
-        }
-    </script>
-
     <!-- Hotjar Tracking Code for my site -->
     <script>
         (function(h,o,t,j,a,r){
@@ -104,6 +63,49 @@
       <footer>
         <p>&copy; Jan2023 - anirudhdmenon</p>
       </footer>
+
       <script src="todo.js"></script>
+
+      <!--Visit count-->
+        <script data-cookieyes="cookieyes-performance">
+            document.cookie = "visit=0; max-age=31536000;";
+            var cookie = document.cookie;
+            if(cookie!= null && cookie!=undefined){
+                if(cookie.length>0){
+                    var cookies = cookie.split(';').map(cookie => cookie.split('=')).reduce((accumulator, [key, value]) =>({ ...accumulator, [key.trim()]: decodeURIComponent(value) }),{});
+                    var seenCount= cookies.visit;
+                    seenCount++;
+                    document.cookie = "visit="+seenCount+";";
+                }
+                else{
+                    document.cookie = "visit=1;";
+                }
+                document.cookie = "click=0;";
+            }
+        </script>
+
+        <!--Click count-->
+        <script data-cookieyes="cookieyes-performance">
+            document.cookie = "click=0";
+            var seenCount=0;
+            function newElement() {
+                var cookie = document.cookie;
+                var btn = document.getElementById("btn");
+                if(cookie!= null && cookie!=undefined){
+                    if(cookie.length>0){
+                        var cookies = cookie.split(';').map(cookie => cookie.split('=')).reduce((accumulator, [key, value]) =>({ ...accumulator, [key.trim()]: decodeURIComponent(value) }),{});
+                        var seenCount= cookies.click;
+                        seenCount++;
+                        document.cookie = "click="+seenCount+";";
+                    }
+                    else{
+                        document.cookie = "click=1;";
+                    }
+                }
+                //document.getElementById("clicks").innerHTML = "button clicked "+seenCount+" times."
+                //alert("button clicked "+seenCount+" times.");
+            }
+        </script>
+
 </body>
 </html>
