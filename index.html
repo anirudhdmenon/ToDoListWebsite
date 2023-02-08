@@ -89,7 +89,7 @@
             //document.cookie = "click=0";
             var seenCount=0;
             var clickcount = document.getElementById("clickcount");
-            clickcount.onClick = function() {
+            clickcount.onclick = function() {
                 var cookie = document.cookie;
                 if(cookie!= null && cookie!=undefined){
                     if(cookie.length>0){
