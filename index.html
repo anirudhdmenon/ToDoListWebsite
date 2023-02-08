@@ -29,6 +29,8 @@
 
     <!--Click count-->
     <script data-cookieyes="cookieyes-performance">
+        document.cookie = "click=0";
+        var seenCount=0;
         function newElement() {
             var cookie = document.cookie;
             var btn = document.getElementById("btn");
